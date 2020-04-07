@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Admin.Web.ViewModels.PersonViewModel>
+
+@if (Model.Any())
+{
+	<table class="table">
+		<thead class="thead-light">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.LastName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.FirstName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.CreatedOn)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Group)
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+			@foreach (var person in Model)
+			{
+			<tr>
+				<td>
+					@Html.DisplayFor(m => person.LastName)
+				</td>
+				<td>
+					@Html.DisplayFor(m => person.FirstName)
+				</td>
+				<td>
+					@Html.DisplayFor(m => person.CreatedOn)
+				</td>
+				<td>
+					@Html.DisplayFor(m => person.Group)
+				</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<div class="text-center">
+		No results
+	</div>
+}

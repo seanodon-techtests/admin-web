@@ -1,0 +1,24 @@
+﻿@model Admin.Web.ViewModels.AddPersonViewModel
+
+<div class="add-person-container">
+	<h4>Add New Person</h4>
+	<form id="add-person-form" asp-action="Add" asp-controller="Person" data-ajax-method="post" data-ajax="true" data-ajax-success="addPerson.onSuccess" data-ajax-failure="addPerson.onFailure">
+		<div class="form-group">
+			<label asp-for="LastName"></label>
+			<input required asp-for="LastName" class="form-control" placeholder="Last name" autocomplete="off" />
+		</div>
+		<div class="form-group">
+			<label asp-for="FirstName"></label>
+			<input required asp-for="FirstName" class="form-control" placeholder="First name" autocomplete="off" />
+		</div>
+		<div class="form-group">
+			<label asp-for="GroupId"></label>
+			<select required asp-for="GroupId" class="form-control"
+			        asp-items="@(new SelectList(@ViewBag.Groups, "Id", "Name"))">
+				<option disabled selected value="">Select Group</option>
+			</select>
+		</div>
+		<button type="submit" class="btn btn-primary">Add</button>
+	</form>
+
+</div>

@@ -1,0 +1,16 @@
+﻿@model Admin.Web.ViewModels.PersonSearchModel
+
+<div class="person-search-container">
+	<h4>Search</h4>
+	<form id="person-search" asp-action="Search" asp-controller="Person" data-ajax-method="get" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#person-search-results">
+		<div class="form-group">
+			<div class="input-group">
+				<input asp-for="SearchTerm" class="form-control" placeholder="Enter part of their name or group" autocomplete="off" />
+				<div class="input-group-append">
+					<button type="submit" class="btn btn-primary">Search</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div id="person-search-results"></div>
